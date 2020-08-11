@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .depth1 {
+            border: 2px dotted black;
+        }
+        .depth2 {
+            border: 2px dotted red;
+        }
+        .depth3 {
+            border: 2px dotted blue;
+        }
+        .depth4 {
+            border: 2px dotted green;
+        }
+        .depth5 {
+            border: 2px dotted purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="depth0" id="div" value="depth0">
+        ㅎㅇ
+        <div class="depth1" id="div" value="depth1">
+            ㅎㅇ
+            <div class="depth2" id="div" value="depth2">
+                ㅎㅇ
+                <div class="depth3" id="div" value="depth3">
+                    ㅎㅇ
+                    <div class="depth4" id="div" value="depth4">
+                        ㅎㅇ
+                    </div>
+                    <div class="depth4-1" id="div" value="depth4-1">
+                        ㅎㅇㅎㅇ
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="depth1">
+        ㅋㅋ
+    </div>
+    <script>
+        console.log(document.getElementById('div').innerHTML)   // HTML 태그 모두
+        console.log(document.getElementById('div').textContent) // 순수 텍스트만
+
+        // # HTMLCollection
+        console.log(document.getElementsByClassName('depth1'))  // 클래스를 여러개 배열로
+        console.log(document.getElementsByTagName('div')[0].nodeValue);
+
+        // querySelector, querySelectorAll
+        console.log(document.querySelector('.depth1').getAttribute('value'))
+        console.log(document.querySelector('.depth1').setAttribute('value', 'changed'))
+        console.log(document.querySelector('.depth1').innerText)
+
+        // # NodeList
+        console.log(document.querySelectorAll('#div'))
+        let test = document.querySelectorAll('#div');
+        for(let list of test){
+            console.log(list)
+        }
+        console.log(test[4].getAttribute('value'))
+        console.log(test[3].children[0].getAttribute('value'))
+
+        console.log(test[0].firstElementChild.children[0])
+        console.log(test[3].lastElementChild.getAttribute('value'))
+        console.log(test[4].nextElementSibling.innerText)
+        console.log(document.querySelector('.depth4-1').previousElementSibling.innerText)
+
+        test[3].remove();
+        console.log(test[2].parentNode);    // depth2
+        test[2].parentNode.remove();
+    </script>    
+</body>
+</html>
