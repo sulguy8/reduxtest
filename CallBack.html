@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <h1 id="test1"></h1>
+    <button onclick="button1_click();">클릭~</button>
+    <button onclick="button2_click();">클릭~</button>
+
+    <script>
+        var test = '';
+
+        // function getData(callbackFunc) {
+        //     $.get('http://localhost:80/api/test', function (response) {
+        //         callbackFunc(response); // 서버에서 받은 데이터 response를 callbackFunc() 함수에 넘겨줌
+        //     });
+        // }
+
+        function getData(parseValue, auth, display) {
+            $.get('http://localhost:80/api/test', function (response) {
+                parseValue(response, function (id) {
+                    auth(id, function (result) {
+                        display(result);
+                    });
+                });
+            });
+        }
+
+        var resultStr = '';
+        var parseValue = function(res, func){
+            console.log(res)
+            let param = res[0]['tstNum'];
+            func(param);
+        }
+        var auth = function(res, func){
+            console.log(res)
+            let param2 = res + 151;
+            func(param2)
+        }
+        var display = function(res){
+            document.querySelector("#test1").innerText = res;
+        }
+
+        getData(parseValue,auth,display)
+
+        //////////////////////////////////////////////////////////////////////////////////////
+
+
+        function getData2(parseValue2) {
+            $.get('http://localhost:80/api/test', function (response) {
+                parseValue2(response);
+            });
+        }
+
+        let parseValue2 = function(res){
+            let param = res[0]['tstNum'];
+            this.parseValueDone(param);
+        }
+        function parseValueDone(id) {
+            auth2(id, authDone);
+        }
+
+        let auth2 = function(res){
+            this.authDone(res);
+        }
+        function authDone(result) {
+            display2(result, displayDone);
+        }
+
+        let display2 = function(result){
+            this.displayDone(result);
+        }
+        function displayDone(text) {
+            console.log(text);
+        }
+
+
+        getData2(parseValue2);
+
+        
+
+    </script>
+</body>
+
+</html>

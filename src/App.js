@@ -34,11 +34,11 @@ class App extends Component {
     }
   }
 
-  test() {
+  async test() {
     // handleChange = (props) => {
     //  ...
     // }
-    axios(
+    await axios(
       {
         url: '/api' + '/test',
         method: 'get',
@@ -47,22 +47,27 @@ class App extends Component {
       }
     ).then(
       res => {
-        this.state.mode = res.data[0]['tstNum']
+        this.state.mode = res.data[0]['tstNum'] + 'ㅋㅋ';
       },
       err => { },
     )
-    console.log(this.state)
+
   }
 
 
   render() {
     return (
       <div className="App">
-        <button onClick={this.test}>클릭!</button>
-        <h1>Hello World</h1>
+        <button onClick={function () {
+          this.test();
+          console.log(this.state);
+          document.querySelector('.depth1').innerText = this.state.mode;
+        }.bind(this)}>클릭</button>
+        <h1 className="depth1">Hello World</h1>
         <AddNumberRoot></AddNumberRoot>
         <DisplayNumberRoot></DisplayNumberRoot>
       </div>
+
     );
   }
 }

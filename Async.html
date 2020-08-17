@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <script>
+        async function logName() {
+            var user = await new fetchItems('http://localhost:80/api/test');
+            console.log(user)
+        }
+
+        function fetchItems(url) {
+            return new Promise(function (resolve, reject) {
+                $.get(url, function (response) {
+                    let result = response[0];
+                    resolve(result);
+                });
+
+            });
+        }
+
+        logName();
+
+        // HTTP 통신 동작을 모방한 코드
+        function fetchItems2() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    var items = [1, 2, 3];
+                    resolve(items)
+                }, 3000);
+            });
+        }
+
+        // jQuery ajax 코드
+        function fetchItems3() {
+            return new Promise(function (resolve, reject) {
+                $.ajax('domain.com/items', function (response) {
+                    resolve(response);
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
