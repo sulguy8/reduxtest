@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let textArr = ['가', '나', '다'];
+        let numArr = [1, 2, 3, 4, 5, 6];
+
+        // 배열.map((요소, 인덱스, 배열) => { return 요소 });
+        let textResult = textArr.map((v) => {
+            console.log(v)
+            return v + ' 입니다.'
+        })
+
+        let numResult = numArr.map((v) => {
+            let result
+            v % 2 ? result = '홀수' : result = '짝수';
+            return result
+        })
+
+        // 배열.reduce((누적값, 현재값, 인덱스, 요소) => { return 결과 }, 초기값)
+        let numReduce = numArr.reduce((acc, cur, i) => {
+            acc.push(cur % 2 ? '홀수' : '짝수');
+            return acc;
+        }, [])
+
+        const promiseFactory = (time) => {
+            return new Promise((resolve, reject) => {
+                console.log(time);
+                setTimeout(resolve, time);
+            });
+        };
+        [1000, 2000, 3000, 4000].reduce((acc, cur) => {
+            return acc.then(() => promiseFactory(cur));
+        }, Promise.resolve());
+
+
+    </script>
+</body>
+
+</html>

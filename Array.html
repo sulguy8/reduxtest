@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var numbers = [45, 4, 9, 16, 25]
+        // Array.every(), 모든 조건의 값들이 특정조건을 충족하는지 체크
+        var allOver18 = numbers.every(myFunction);
+
+        // Array.some(), 배열의 특정 값들이 조건을 충족하는지 체크
+        var someOver18 = numbers.some(myFunction)
+
+        // Array.find(), 테스트 함수를 통과한 첫번째 배열요소를 반환
+        var first = numbers.find(myFunction);
+       
+        // Array.findIndex(), 테스트 함수를 통과한 첫번째 요소의 순번을 반환
+        var firstIndex = numbers.findIndex(myFunction)
+
+        function myFunction(value, index, array) {
+            return value < 5;
+        }
+        console.log(firstIndex)
+        // Array.indexOf(), 배열에서 특정 요소를 찾아서 해당 위치값을 반환
+        var fruits = ["Apple", "Orange", "Apple", "Mango"];
+        var a = fruits.indexOf('Apple');
+
+        // Array.lastIndexOf(), indexOf와 같지만 복수의 경우 맨 마지막에 발견된 요소를 반환
+        var a = fruits.lastIndexOf('Apple');
+
+
+
+    </script>
+</body>
+
+</html>
