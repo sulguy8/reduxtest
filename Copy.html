@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 자바스크립트에서 배열을 다른 변수에 할당하면 레퍼런스 참조로 복사됨
+        // 레퍼런스 참조없는 배열복사가 필요할때 아래와 같은 방법 사용
+
+        // # Deep Copy 
+        var newArr = [0, 1, 2]
+        var copyArr = JSON.parse(JSON.stringify(newArr));
+        console.log(copyArr.indexOf(1));
+        // 이 방식은 indexOf나 contains같은 내장함수로 객체검색이 안됨
+        // 이유는 배열안의 객체들의 주소값이 다르기 때문
+
+        // # Shallow Copy
+        var newArr = [0, 1, 2]
+        var copyArr = newArr.slice();
+        console.log(copyArr.indexOf(1));
+        // 이러면 내장함수 사용가능
+
+        for (let i = 0; i < 100; i++) {
+            console.log(i)
+            console.log(i % 2)
+        }
+
+        let test = [1, 2, 3, 4]
+        let test2 = [2, 3, 5]
+        test = Object.assign(test2)
+        console.log(test)
+
+
+
+        const obj = {};
+        const arr = [];
+        function isEmpty(param) {
+            return Object.keys(param).length === 0;
+        }
+        console.log(isEmpty(obj)); // true
+        console.log(isEmpty(arr)); // true
+
+    </script>
+</body>
+
+</html>
