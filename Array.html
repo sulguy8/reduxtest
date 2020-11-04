@@ -20,12 +20,15 @@
         var first = numbers.find(myFunction);
        
         // Array.findIndex(), 테스트 함수를 통과한 첫번째 요소의 순번을 반환
-        var firstIndex = numbers.findIndex(myFunction)
+        var firstIndex = numbers.findIndex(function test(value, index, array){
+            return value < 5;
+        })
 
         function myFunction(value, index, array) {
             return value < 5;
         }
         console.log(firstIndex)
+
         // Array.indexOf(), 배열에서 특정 요소를 찾아서 해당 위치값을 반환
         var fruits = ["Apple", "Orange", "Apple", "Mango"];
         var a = fruits.indexOf('Apple');

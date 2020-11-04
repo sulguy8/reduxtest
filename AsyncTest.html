@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="count_after()">hello</button>
+    <script>
+        // # callback function
+        // function count_before() {
+        //     clock1();
+        //     clock2();
+        //     console.log('finish!')
+        // }
+        // function count_after() {
+        //     clock1(clock2);
+        // }
+        // function clock1() {
+        //     console.log('clock1 start!')
+        //     let time = 1;
+        //     let timerId = setInterval(() => console.log(time++), 1000);
+        //     setTimeout(() => {
+        //         clearInterval(timerId);
+        //     }, 5000);
+        // }
+        // function clock2() {
+        //     console.log('clock2 start!')
+        //     let time = 1;
+        //     let timerId = setInterval(() => console.log(time++), 1000);
+        //     setTimeout(() => {
+        //         clearInterval(timerId);
+        //     }, 5000);
+        // }
+        // let clock1 = function(func) {
+        //     console.log('clock1 start!')
+        //     let time = 1;
+        //     let timerId = setInterval(() => console.log(time++), 1000);
+        //     setTimeout(() => {
+        //         clearInterval(timerId);
+        //         func();
+        //     }, 5000);
+        // }
+        // let clock2 = function(func) {
+        //     console.log('clock2 start!')
+        //     let time = 1;
+        //     let timerId = setInterval(() => console.log(time++), 1000);
+        //     setTimeout(() => {
+        //         clearInterval(timerId);
+        //         console.log('finish!!')
+        //     }, 5000);
+        // }
+
+        // # Promise
+        // function count_after() {
+        //     clock1().then(function (res) {
+        //         console.log(res)
+        //         this.clock2().then(function (res) {
+        //             console.log(res)
+        //             console.log('finish!')
+        //         });
+        //     })
+        // }
+        // function clock1() {
+        //     return new Promise(function (resolve, reject) {
+        //         console.log('clock1 start!')
+        //         let time = 1;
+        //         let timerId = setInterval(() => console.log(time++), 1000);
+        //         setTimeout(() => {
+        //             clearInterval(timerId);
+        //             resolve("clock1 Finish");
+        //         }, 5000);
+        //     });
+        // }
+        // function clock2() {
+        //     return new Promise(function (resolve, reject) {
+        //         console.log('clock2 start!')
+        //         let time = 1;
+        //         let timerId = setInterval(() => console.log(time++), 1000);
+        //         setTimeout(() => {
+        //             clearInterval(timerId);
+        //             resolve("clock2 Finish");
+        //         }, 5000);
+        //     });
+        // }
+
+        // # async, await
+        // async function count_after() {
+        //     await this.clock1();
+        //     await this.clock2();
+        //     console.log("정지")
+        // }
+        // function clock1() {
+        //     return new Promise(function (resolve, reject) {
+        //         console.log('clock1 start!')
+        //         let time = 1;
+        //         let timerId = setInterval(() => console.log(time++), 1000);
+        //         setTimeout(() => {
+        //             clearInterval(timerId);
+        //         }, 5000);
+        //     });
+        // }
+        // function clock2() {
+        //     return new Promise(function (resolve, reject) {
+        //         console.log('clock2 start!')
+        //         let time = 1;
+        //         let timerId = setInterval(() => console.log(time++), 1000);
+        //         setTimeout(() => {
+        //             clearInterval(timerId);
+        //         }, 5000);
+        //     });
+        // }
+    </script>
+</body>
+
+</html>
