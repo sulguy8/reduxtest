@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+    
+<body>
+    <h1 id="test">
+        test!
+
+    </h1>
+    <script>
+        let test = '';
+        document.addEventListener("DOMContentLoaded", () => {
+            test = getSki();
+            console.log(test);
+        });
+
+        function getSki() {
+            let result = '';
+			$.ajax({
+				url:'http://zeplin.synology.me:809/skl/ski/1',
+                type: 'GET',
+                async: false,
+				success:function(res){
+                    result = res['skiName'];
+				},
+				error:function(res){
+
+				}
+			});
+            return result;
+        }
+
+        function getSki2() {
+            console.log(test);
+        }
+    </script>
+</body>
+
+</html>
